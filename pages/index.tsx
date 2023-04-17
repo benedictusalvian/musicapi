@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
 
   const [prompt, setPrompt] = useState('')
-  const [content, setContent] = useState([])
+  const [content, setContent] = useState<any[]>([])
 
   const submitPrompt = async () => {
     const data = {
