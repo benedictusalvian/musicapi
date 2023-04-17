@@ -17,7 +17,7 @@ export default function Home() {
       duration: 4
     }
     const JSONdata = JSON.stringify(data)
-    const endpoint = 'https://cors-anywhere-ashy.vercel.app/http://d-app-clgjbq5mt003o2y2ngkxhwkge-947411825.us-east-1.elb.amazonaws.com/predict'
+    const endpoint = 'http://d-app-clgjbq5mt003o2y2ngkxhwkge-947411825.us-east-1.elb.amazonaws.com/predict'
     const options = {
       method: 'POST',
       headers: {
