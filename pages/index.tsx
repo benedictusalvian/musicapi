@@ -10,6 +10,7 @@ export default function Home() {
   const [content, setContent] = useState<any[]>([])
 
   const submitPrompt = async () => {
+      
     const data = {
       prompt: prompt,
       num_samples: 1,
@@ -17,15 +18,24 @@ export default function Home() {
       duration: 4
     }
     const JSONdata = JSON.stringify(data)
-    const endpoint = 'http://d-app-clgjbq5mt003o2y2ngkxhwkge-947411825.us-east-1.elb.amazonaws.com/predict'
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+
+    const body = JSON.stringify({
+      url: "http://d-app-clgjbq5mt003o2y2ngkxhwkge-947411825.us-east-1.elb.amazonaws.com/predict",
+      method: "POST",
       body: JSONdata,
-    }
-    const response = await fetch(endpoint, options)
+    });
+    // const endpoint = 'http://d-app-clgjbq5mt003o2y2ngkxhwkge-947411825.us-east-1.elb.amazonaws.com/predict'
+    // const options = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSONdata,
+    // }
+    const response = await fetch("/api/predict", {
+      method: "POST",
+      body,
+    });
     const result = await response.json()
     console.log(result)
 
